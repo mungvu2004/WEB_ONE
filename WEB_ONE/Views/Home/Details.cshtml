@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+
+@model WEB_ONE.Models.ProductDetailViewModel
+<link rel="stylesheet" href="~/wwwroot/css/Details.css"/>
+<link rel="stylesheet" href="~/wwwroot/css/fontawesome-free-6.6.0-web/css/fontawesome.min.css"/>
+<div class="details">
+    @if (Model.Product != null)
+    {
+        var product = Model.Product;
+        <div class="detail_img">
+            <img src="~/wwwroot/img/image/@product.img" />
+        </div>
+        <div class="detail_p">
+            <h1>@product.name</h1>
+            <div class="details_icons">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <a href="#">Viết đánh giá của bạn</a>
+            </div>
+            <div class="details_price">
+                <span class="final_price">@String.Format("{0:N0}", product.final_price) &#8363;</span>
+                <span class="price">@String.Format("{0:N0}", product.price) &#8363;</span>
+                <span class="discount">@Math.Round(@product.discount * 100) %</span>
+            </div>
+            <div class="details_polise">
+                <div class="item"><i class="fas fa-rotate-left">Đổi trả dễ dàng</i></div>
+                <div class="item"><i class="fas fa-rotate-left">Chính hãng 100%</i></div>
+                <div class="item"><i class="fas fa-truck">Giao hàng toàn quốc</i></div>
+            </div>
+            <div class="details_banchay">
+                <div class="banchay_img">
+                    <img src="https://bizweb.dktcdn.net/100/415/697/themes/902041/assets/cup.png?1710226595388" />
+                    <p>Top bán chạy</p>
+                </div>
+                <span>Sản phẩm bán chạy</span>
+            </div>
+            <button id="addToCartButton" data-product-id="@product.shirt_id" data-user-id="@Model.UserId">Thêm vào giỏ hàng</button>
+        </div>
+        <div class="detail_mt"></div>
+    }
+</div>
+
